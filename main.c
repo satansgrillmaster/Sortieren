@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct languages_t{
     char name[30];
@@ -81,16 +82,12 @@ void bubbleSort(struct languages_t languages[], int counter,int sort_type)
 }
 
 void sort_by_name(struct languages_t languages[], int counter){
-    int number;
-    int number1;
+
     struct languages_t tmp;
     for(int i = 0; i < counter;i++){
         for(int j = 0;j<counter -1;j++){
 
-            number = languages[j].name[0];
-            number1 = languages[j + 1].name[0];
-
-            if(number > number1){
+            if(strcmp(languages[j].name,languages[j + 1].name) > 0){
                 tmp = languages[j];
                 languages[j] = languages[j + 1];
                 languages[j + 1] = tmp;
